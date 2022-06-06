@@ -1,7 +1,5 @@
 const { Schema, model } = require('mongoose');
 
-const employeeSchema = require('./Employee');
-
 const departmentSchema = new Schema({
     departmentName: {
         type: String,
@@ -9,7 +7,6 @@ const departmentSchema = new Schema({
         unique: true,
         trim: true,
     },
-    employees: [employeeSchema],
 }, {
     timestamps: true,
 });
