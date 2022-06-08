@@ -1,17 +1,15 @@
 const express = require('express');
-const db = require('./config/connection');
-const departmentRouter = require('./routes/department');
-const employeeRouter = require('./routes/employee');
+const dotenv = require('dotenv').config();
+const connectDB = require('./config/connection');
+
+connectDB();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use('/department', departmentRouter);
-app.use('/employee', employeeRouter);
+app.use('/api/departments', require('./routes/departmentRoutes'));
 
-db.once('open', () => {
-    app.listen(PORT, () => console.log(`Now listening on localhost:${PORT}`));
-});
+app.listen(PORT, () => console.log(`Now listening on localhost:${PORT}`));

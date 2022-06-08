@@ -1,6 +1,6 @@
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
 
-const departmentSchema = new Schema({
+const departmentSchema = mongoose.Schema({
     departmentName: {
         type: String,
         required: true,
@@ -11,6 +11,6 @@ const departmentSchema = new Schema({
     timestamps: true,
 });
 
-const Department = model('Department', departmentSchema);
+// const Department = model('Department', departmentSchema);
 
-module.exports = Department;
+module.exports = mongoose.model('Department', departmentSchema);
