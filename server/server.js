@@ -11,5 +11,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use('/api/departments', require('./routes/departmentRoutes'));
+app.use('/api/users', require('./routes/userRoutes'));
 
 app.listen(PORT, () => console.log(`Now listening on localhost:${PORT}`));

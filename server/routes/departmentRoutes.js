@@ -1,6 +1,12 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { getDepartments, addDepartment, updateDepartment, deleteDepartment } = require('../controllers/departmentController');
+const {
+  getDepartments,
+  addDepartment,
+  updateDepartment,
+  deleteDepartment,
+} = require("../controllers/departmentController");
+const { protect } = require("../middleware/authMiddleware");
 
 // router.route('/').get((req, res) => {
 //     Department.find()
@@ -18,7 +24,10 @@ const { getDepartments, addDepartment, updateDepartment, deleteDepartment } = re
 //         .catch(err => res.status(400).json('Error: ' + err));
 // });
 
-router.route('/').get(getDepartments).post(addDepartment);
-router.route('/:id').put(updateDepartment).delete(deleteDepartment);
+router.route("/").get(getDepartments).post(protect, addDepartment);
+router
+  .route("/:id")
+  .put(protect, updateDepartment)
+  .delete(protect, deleteDepartment);
 
-module.exports = router
+module.exports = router;

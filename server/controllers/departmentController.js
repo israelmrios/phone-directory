@@ -2,7 +2,7 @@ const Department = require("../models/Department");
 
 // @description     Gets all Departments
 // @route           GET /api/departments
-// @access          Private
+// @access          Public
 const getDepartments = async (req, res) => {
   const departments = await Department.find();
 
