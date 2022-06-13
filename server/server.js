@@ -1,6 +1,6 @@
-const express = require('express');
-const dotenv = require('dotenv').config();
-const connectDB = require('./config/connection');
+const express = require("express");
+const dotenv = require("dotenv").config();
+const connectDB = require("./config/connection");
 
 connectDB();
 
@@ -10,7 +10,8 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use('/api/departments', require('./routes/departmentRoutes'));
-app.use('/api/users', require('./routes/userRoutes'));
+app.use("/api/departments", require("./routes/departmentRoutes"));
+app.use("/api/employees", require("./routes/employeeRoutes"));
+app.use("/api/users", require("./routes/userRoutes"));
 
 app.listen(PORT, () => console.log(`Now listening on localhost:${PORT}`));
