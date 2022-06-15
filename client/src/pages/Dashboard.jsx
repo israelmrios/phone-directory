@@ -1,6 +1,15 @@
+import { useState, useEffect } from 'react';
+
 function Dashboard() {
+
+  
   return (
-    <div>Dashboard</div>
+    <>
+    <section className="heading">
+      <h1>Departments</h1>
+      <p>Select a department to view a list of employees</p>
+    </section>
+    </>
   )
 }
 
