@@ -2,7 +2,7 @@
 ![GitHub](https://img.shields.io/badge/license-MIT-orange?style=for-the-badge)
 
 ## Description
-This application is a fully functioning MERN Stack application. It uses Redux Tool Kit and Axios to make HTTP requests. The application can be found in [Heroku](https://) but can also be cloned and run locally, see [Installation](#installation) and [Usage](#usage) for more details. This application was created to implement a company directory and to give the Admin the capability to manage the directory. It has the ability to filter the directory by department and to search the entire directory for specific employees.
+This application is a fully functioning MERN Stack application. It uses Redux Tool Kit and Axios to make HTTP requests. The application can be found in [Heroku](https://dbphonedirectory.herokuapp.com/) but can also be cloned and run locally, see [Installation](#installation) and [Usage](#usage) for more details. This application was created to implement a company directory and to give the Admin the capability to manage the directory. It has the ability to filter the directory by department and to search the entire directory for specific employees.
 
 ## Table of Contents
 - [Installation](#installation)
@@ -18,10 +18,11 @@ How to install this application and get started:
 * Clone the repo to your local machine
 * Open the integrated terminal
 * Enter `npm install` which will install all dependencies
+* Rename the `.envexample` to `.env` and add your `MONGO_URI`
 * Enter `npm run develop` which will use the concurrently package and run the server and client host at the same time
 
 ## Usage
-You can find the deployed application by clicking on this link https://.
+You can find the deployed application by clicking on this link https://dbphonedirectory.herokuapp.com/.
 
 ### Step 1
 > **Note**: Not all available options and steps will be demonstrated here
