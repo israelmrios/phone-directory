@@ -1,12 +1,13 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { createEmployee } from "../features/employees/employeeSlice";
+import { getDepartments, reset } from "../features/departments/departmentSlice";
 
 function EmployeeForm() {
   const [employeeFormData, setEmployeeFormData] = useState({
+    department: "",
     firstName: "",
     lastName: "",
-    department: "",
     title: "",
     email: "",
     phone1: "",
@@ -16,30 +17,48 @@ function EmployeeForm() {
   });
 
   const {
+    department,
     firstName,
     lastName,
-    department,
     title,
     email,
     phone1,
     phone2,
     ext,
-    notes
+    notes,
   } = employeeFormData;
 
   const dispatch = useDispatch();
+
+  const { departments, isError, message } = useSelector(
+    (state) => state.departments
+  );
+
+  useEffect(() => {
+    if (isError) {
+      console.log(message);
+    }
+
+    dispatch(getDepartments());
+
+    return () => {
+      dispatch(reset());
+    };
+  }, [isError, message, dispatch]);
 
   const onChange = (e) => {
     setEmployeeFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
+
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(createEmployee( employeeFormData ));
+    dispatch(createEmployee(employeeFormData));
+    setEmployeeFormData("");
   };
 
   return (
@@ -68,14 +87,20 @@ function EmployeeForm() {
             />
           </div>
           <div className="form-group">
-            <input
-              type="text"
-              id="department"
-              name="department"
-              value={department}
-              placeholder="Department"
-              onChange={onChange}
-            />
+            <select name="department" value={department} onChange={onChange}>
+              <option></option>
+              {departments.map((department) => {
+                return (
+                  <option
+                    key={department._id}
+                    name={department}
+                    value={department._id}
+                  >
+                    {department.departmentName}
+                  </option>
+                );
+              })}
+            </select>
           </div>
           <div className="form-group">
             <input
@@ -149,3 +174,11 @@ function EmployeeForm() {
 }
 
 export default EmployeeForm;
+
+
+// type="text"
+// id="department"
+// name="department"
+// value={department}
+// placeholder="Department"
+// onChange={onChange}

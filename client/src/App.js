@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Dashboard from "./pages/Dashboard";
 import AdminLogin from "./pages/AdminLogin";
 import AdminPage from "./pages/AdminPage";
+import EmployeePage from "./pages/EmployeePage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/admin-login" element={<AdminLogin />} />
             <Route path="/admin-page" element={<AdminPage />} />
+            <Route path="/employee-page" element={<EmployeePage />} />
           </Routes>
         </div>
       </Router>

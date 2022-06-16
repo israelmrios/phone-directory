@@ -15,8 +15,30 @@ const createDepartment = async (departmentData, token) => {
   return response.data;
 };
 
+// Get Department Names
+const getDepartments = async () => {
+  const response = await axios.get(API_URL);
+
+  return response.data;
+};
+
+// Delete a Department
+const deleteDepartment = async (departmentId, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const response = await axios.delete(API_URL + departmentId, config);
+
+  return response.data;
+};
+
 const departmentService = {
   createDepartment,
+  getDepartments,
+  deleteDepartment,
 };
 
 export default departmentService;
