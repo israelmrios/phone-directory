@@ -8,8 +8,6 @@
     "server": "nodemon server/server.js",
     "client": "npm start --prefix client",
     "develop": "concurrently \"npm run server\" \"npm run client\"",
-    "install": "cd server && npm i && cd ../client && npm i",
-    "build": "cd client && npm run build",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "repository": {
