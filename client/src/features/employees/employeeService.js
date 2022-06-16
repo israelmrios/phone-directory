@@ -34,16 +34,16 @@ const getEmployeeByDep = async (departmentData) => {
 };
 
 // Get Employee by Department Name
-const getEmployee = async (departmentData) => {
-  console.log(departmentData)
-  const response = await axios.get(API_URL);
+// const getEmployee = async (departmentData) => {
+//   console.log(departmentData)
+//   const response = await axios.get(API_URL);
 
-  const employees = response.data
+//   const employees = response.data
 
-  const selectedEmployees = employees.filter((employee) => employee.department !== departmentData)
+//   const selectedEmployees = employees.filter((employee) => employee.department !== departmentData)
 
-  return selectedEmployees;
-};
+//   return selectedEmployees;
+// };
 
 // Delete an employee
 const deleteEmployee = async (employeeId, token) => {
@@ -62,7 +62,6 @@ const employeeService = {
   createEmployee,
   getEmployeeByDep,
   getEmployees,
-  getEmployee,
   deleteEmployee,
 };
 
