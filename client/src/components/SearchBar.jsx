@@ -1,10 +1,10 @@
-import { FaSearch, FaTimes } from "react-icons/fa";
+// import { FaSearch, FaTimes } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { getEmployees, reset } from "../features/employees/employeeSlice";
 import Spinner from "./Spinner";
 
-function SearchBar({ placeholder, data }) {
+function SearchBar({ placeholder }) {
   const dispatch = useDispatch();
 
   const [filteredData, setFilteredData] = useState([]);
@@ -36,7 +36,7 @@ function SearchBar({ placeholder, data }) {
     return () => {
       dispatch(reset());
     };
-  }, [isError, message, dispatch]);
+  }, [ isError, message, dispatch]);
 
   if (isLoading) {
     return <Spinner />;
@@ -51,11 +51,11 @@ function SearchBar({ placeholder, data }) {
         <div className="dataResult">
           {filteredData.map((value, key) => {
             return (
-              <a className="dataItem">
+              <div className="dataItem">
                 <p>
                   {value.firstName} {value.lastName}
                 </p>
-              </a>
+              </div>
             );
           })}
         </div>

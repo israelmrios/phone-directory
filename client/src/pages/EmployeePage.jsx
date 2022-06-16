@@ -3,7 +3,7 @@ import Spinner from "../components/Spinner";
 import EmployeeItem from "../components/EmployeeItem";
 
 function EmployeePage() {
-  const { employees, isLoading, isError, message } = useSelector(
+  const { employees, isLoading } = useSelector(
     (state) => state.employees
   );
 
